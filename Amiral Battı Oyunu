@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void ikiBoyutluDiziyiYazdir(int **dizi, int satir, int sutun);
+
+int main() {
+	
+	
+	
+	srand(time(0));
+	int satirSayisi, sutunSayisi;
+	
+	printf("Amiral batti oyunu icin 2 boyutlu alan buyuklugu tanimlayin (ornek: 10 14 yazdiginizda 10x14'luk bir alan olustursun.)");
+	scanf("%d%d",&satirSayisi, &sutunSayisi);
+	int i;
+	int **oyunAlani;
+	oyunAlani = (int **)calloc(satirSayisi, sizeof(int*));
+	for(i=0; i<satirSayisi; i++){
+		oyunAlani[i] = (int*)calloc(sutunSayisi, sizeof(int));
+	}
+	
+	ikiBoyutluDiziyiYazdir(oyunAlani, satirSayisi, sutunSayisi);
+	
+	
+	return 0;
+}
+
+void ikiBoyutluDiziyiYazdir(int **dizi, int satir, int sutun){
+	int i,j;
+	for(i=0; i<satir;i++){
+		for(j=0; j<sutun;j++){
+			printf("%d",dizi[i][j]);
+		}
+		printf("\n");
+	}
+	printf("**********\n");
+}
